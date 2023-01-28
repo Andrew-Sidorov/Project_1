@@ -1,0 +1,36 @@
+//Программа, которая из имеющегося массива строк формирует массив строк, длина которых меньше или равно 3.
+
+string[] GetArray(string[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] newArray = new string[count];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            newArray[j] = array[i];
+            j++;
+        }
+    }
+    return newArray;
+}
+void PrintArray(string[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
+    {
+        Console.Write($"{arr[i]}', ");
+    }
+    Console.Write($"'{arr[arr.Length - 1]}']");
+}
+
+string[] myArrey = { "Massive", "12345", "Hi", "24" };
+PrintArray(GetArray(myArrey));
